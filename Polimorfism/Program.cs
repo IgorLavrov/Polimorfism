@@ -11,16 +11,20 @@ namespace Polimorfism
        
             static void Main(string[] args)
             {
-                Person[] ob = new Person[5];   //массив ссылок
+                Person[] ob = new Person[10];   //массив ссылок
                 int n = 0; string s, s1;
                 do
                 {
-                    Console.WriteLine("Студент(s) / Преподаватель(t)?");
+                Console.WriteLine("Сделай свой выбор");
+                Console.WriteLine("Студент(s) / Преподаватель(t) / Рабочий(c) / Директор(a) / Врач (k)?");
                     s = Console.ReadLine();
                     if (s == "s") ob[n] = new Student(); // создаем объект класса Студент
                     if (s == "t") ob[n] = new Teach();   // создаем объект класса Преподаватель
-                    ob[n].SetData();        // вызов метода соответствующего производного класса
-                    n++;
+                    if (s == "c") ob[n] = new Worker();
+                    if (s == "a") ob[n] = new Director();
+                    if (s == "k") ob[n] = new Doctor();
+                ob[n].SetData();        // вызов метода соответствующего производного класса
+                n++;
                     Console.WriteLine("y/n?");
                     s1 = Console.ReadLine();
                 } while (s1 == "y");
